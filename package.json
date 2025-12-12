@@ -1,17 +1,17 @@
 {
-  "private": true,
-  "packageManager": "pnpm@10.25.0",
-  "type": "module",
-  "license": "MIT",
-  "scripts": {
-    "lint": "eslint . && prettier --check .",
-    "lint:fix": "eslint . --fix && prettier --write .",
-    "release": "git push && git update-ref refs/heads/v1 refs/heads/main && git push origin v1 --force"
-  },
-  "devDependencies": {
-    "@so1ve/eslint-config": "^3.19.0",
-    "@so1ve/prettier-config": "^3.19.0",
-    "eslint": "^9.39.1",
-    "prettier": "^3.7.4"
-  }
+	"private": true,
+	"packageManager": "pnpm@10.25.0",
+	"type": "module",
+	"license": "MIT",
+	"scripts": {
+		"lint": "eslint . && prettier --check .",
+		"lint:fix": "eslint . --fix && prettier --write .",
+		"release": "git update-ref refs/heads/v1 refs/heads/main && git push origin v1 --force && git push"
+	},
+	"devDependencies": {
+		"@so1ve/eslint-config": "^3.19.0",
+		"@so1ve/prettier-config": "^3.19.0",
+		"eslint": "^9.39.1",
+		"prettier": "^3.7.4"
+	}
 }
