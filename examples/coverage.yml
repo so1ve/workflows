@@ -1,0 +1,14 @@
+name: Upload code coverage to Codecov
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  coverage:
+    uses: so1ve/workflows/.github/workflows/coverage.yml@v1
+    needs: conventional-ci
+    permissions:
+      id-token: write

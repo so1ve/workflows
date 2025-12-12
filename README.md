@@ -26,10 +26,21 @@ To use a workflow, reference it in your project’s `.github/workflows/*.yml`:
 
 ```yaml
 # Example: Conventional CI
-uses: so1ve/workflows/.github/workflows/conventional-ci.yml@v1
+jobs:
+  ci:
+    uses: so1ve/workflows/.github/workflows/conventional-ci.yml@v1
 ```
 
-See the workflows in the [`.github/workflows/`](./.github/workflows) folder for configuration details.
+See the example workflow configurations in the [`examples/`](./examples) folder:
+
+- [Conventional CI](./examples/conventional-ci.yml)
+- [autofix.ci](./examples/autofix-ci.yml)
+- [Release](./examples/release.yml)
+- [Release Commit to pkg.pr.new](./examples/release-commit.yml)
+- [Lock Threads](./examples/lock.yml)
+- [Upload code coverage to Codecov](./examples/coverage.yml)
+
+For more details, see the workflow definitions in the [`.github/workflows/`](./.github/workflows) folder.
 
 ## Actions
 

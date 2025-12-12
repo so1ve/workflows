@@ -1,0 +1,23 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  release:
+    uses: so1ve/workflows/.github/workflows/release.yml@v1
+    with:
+      publish: true
+
+  # Uncomment to also release to JSR
+  # release-jsr:
+  #   uses: so1ve/workflows/.github/workflows/release-jsr.yml@v1
+  #   permissions:
+  #     contents: read
+  #     id-token: write
