@@ -6,11 +6,12 @@
 	"scripts": {
 		"lint": "eslint . && prettier --check .",
 		"lint:fix": "eslint . --fix && prettier --write .",
-		"release": "git update-ref refs/heads/v1 refs/heads/main && git push origin v1 --force && git push"
+		"release": "bumpp && git update-ref refs/heads/v1 refs/heads/main && git push origin v1 --force"
 	},
 	"devDependencies": {
 		"@so1ve/eslint-config": "^3.19.0",
 		"@so1ve/prettier-config": "^3.19.0",
+		"bumpp": "^10.3.2",
 		"eslint": "^9.39.1",
 		"prettier": "^3.7.4"
 	}
