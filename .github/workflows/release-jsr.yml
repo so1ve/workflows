@@ -1,0 +1,28 @@
+name: Release to JSR
+
+on:
+  workflow_call:
+    inputs:
+      build:
+        required: false
+        type: string
+        default: pnpm run build
+
+jobs:
+  release-jsr:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Setup JS
+        uses: so1ve/workflows/setup-js@v1
+
+      - name: Build
+        run: ${{ inputs.build }}
+        if: ${{ inputs.build }}
+
+      - name: Publish to JSR
+        run: pnpm dlx jsr publish

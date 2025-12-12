@@ -1,0 +1,32 @@
+name: autofix.ci
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request: {}
+
+  workflow_call:
+    inputs:
+      command:
+        required: false
+        type: string
+        default: pnpm run lint:fix
+
+jobs:
+  autofix:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Setup JS
+        uses: so1ve/workflows/setup-js@v1
+
+      - name: Fix
+        run: ${{ inputs.command }}
+        if: ${{ inputs.command != '' }}
+
+      - name: Commit
+        uses: autofix-ci/action@635ffb0c9798bd160680f18fd73371e355b85f27 # v1.3.2

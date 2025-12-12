@@ -1,0 +1,36 @@
+name: Upload code coverage to Codecov
+
+on:
+  workflow_call:
+    inputs:
+      test:
+        required: false
+        type: string
+        default: pnpm run test:coverage
+
+      build:
+        required: false
+        type: string
+        default: pnpm run build
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+
+    steps:
+      - name: Setup JS
+        uses: so1ve/workflows/setup-js@v1
+
+      - name: Build
+        run: ${{ inputs.build }}
+
+      - name: Coverage
+        run: ${{ inputs.test }}
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5.5.1
+        with:
+          use_oidc: true

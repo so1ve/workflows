@@ -1,0 +1,37 @@
+name: Release Commit to pkg.pr.new
+
+on:
+  workflow_call:
+    inputs:
+      build:
+        required: false
+        type: string
+        default: pnpm run build
+      compact:
+        required: false
+        type: boolean
+        default: false
+      packages:
+        required: false
+        type: string
+        default: ""
+
+jobs:
+  release-commit:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      id-token: write
+
+    steps:
+      - name: Setup JS
+        uses: so1ve/workflows/setup-js@v1
+        with:
+          fetch-all: true
+
+      - name: Build
+        run: ${{ inputs.build }}
+
+      - name: Publish
+        run: pnpm dlx pkg-pr-new@0.0 publish --pnpm ${{ inputs.compact && '--compact' || '' }} ${{ inputs.packages }}

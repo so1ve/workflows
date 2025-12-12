@@ -1,0 +1,97 @@
+name: Conventional CI
+
+on:
+  workflow_call:
+    inputs:
+      node-versions:
+        required: false
+        type: string
+        default: "22,24,25"
+
+      typecheck:
+        required: false
+        type: string
+        default: pnpm run typecheck
+
+      lint:
+        required: false
+        type: string
+        default: pnpm run lint
+
+      build:
+        required: false
+        type: string
+        default: pnpm run build
+
+      test:
+        required: false
+        type: string
+        default: pnpm run test
+
+      skip-typecheck:
+        required: false
+        type: boolean
+        default: false
+
+      skip-lint:
+        required: false
+        type: boolean
+        default: false
+
+      skip-test:
+        required: false
+        type: boolean
+        default: false
+
+      build-for-lint:
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    if: ${{ !inputs.skip-lint }}
+    steps:
+      - name: Setup JS
+        uses: so1ve/workflows/setup-js@v1
+
+      - name: Build
+        run: ${{ inputs.build }}
+        if: ${{ inputs.build-for-lint }}
+
+      - name: Lint
+        run: ${{ inputs.lint }}
+        if: ${{ inputs.lint != '' }}
+
+  typecheck:
+    runs-on: ubuntu-latest
+    if: ${{ !inputs.skip-typecheck }}
+    steps:
+      - name: Setup JS
+        uses: so1ve/workflows/setup-js@v1
+
+      - name: Type Check
+        run: ${{ inputs.typecheck }}
+        if: ${{ inputs.typecheck != '' }}
+
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node-version: ${{ fromJson(format('[{0}]', inputs.node-versions)) }}
+      fail-fast: false
+
+    if: ${{ !inputs.skip-test }}
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Setup JS
+        uses: so1ve/workflows/setup-js@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Build
+        run: ${{ inputs.build }}
+
+      - name: Unit Test
+        run: ${{ inputs.test }}

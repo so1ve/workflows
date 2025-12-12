@@ -1,0 +1,61 @@
+name: Setup JavaScript
+description: Setup JavaScript environment
+
+inputs:
+  persist-credentials:
+    description: Whether to configure the token or SSH key with the local git config
+    default: "false"
+
+  fetch-all:
+    description: Whether to fetch all history for all branches and tags.
+    default: "false"
+
+  node-version:
+    description: "Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0."
+    default: "lts/*"
+
+  setup-ni:
+    description: Whether to setup @antfu/ni for installing dependencies.
+    default: "true"
+
+  auto-install:
+    description: Whether to automatically install dependencies.
+    default: "true"
+
+  package-manager:
+    description: "Package manager to use. Examples: npm, yarn, pnpm."
+    default: pnpm
+
+runs:
+  using: composite
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v6.0.1
+      with:
+        persist-credentials: ${{ inputs.persist-credentials }}
+        fetch-depth: "${{ inputs.fetch-all == 'true' && '0' || '1' }}"
+
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4.2.0
+      if: ${{ inputs.package-manager == 'pnpm' }}
+
+    - name: Setup node
+      uses: actions/setup-node@v6.1.0
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: ${{ inputs.package-manager }}
+        registry-url: "https://registry.npmjs.org"
+
+    - name: Update npm
+      shell: bash
+      run: npm install -g npm@latest
+
+    - name: Install @antfu/ni
+      shell: bash
+      run: ${{ inputs.package-manager }} install -g @antfu/ni
+      if: ${{ inputs.setup-ni }}
+
+    - name: Install dependencies
+      shell: bash
+      run: ${{ inputs.package-manager }} install
+      if: ${{ inputs.auto-install }}
