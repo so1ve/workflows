@@ -22,6 +22,8 @@ jobs:
     steps:
       - name: Setup JS
         uses: so1ve/workflows/setup-js@v1
+        with:
+          no-frozen-lockfile: true
 
       - name: Fix
         run: ${{ inputs.command }}
