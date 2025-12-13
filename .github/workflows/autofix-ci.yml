@@ -12,6 +12,14 @@ on:
         required: false
         type: string
         default: pnpm run lint:fix
+      build:
+        required: false
+        type: string
+        default: pnpm run build
+      build-for-lint:
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   autofix:
@@ -24,6 +32,10 @@ jobs:
         uses: so1ve/workflows/setup-js@v1
         with:
           no-frozen-lockfile: true
+
+      - name: Build
+        run: ${{ inputs.build }}
+        if: ${{ inputs.build-for-lint }}
 
       - name: Fix
         run: ${{ inputs.command }}
