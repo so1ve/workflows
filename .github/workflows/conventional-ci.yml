@@ -48,6 +48,11 @@ on:
         type: boolean
         default: false
 
+      build-for-typecheck:
+        required: false
+        type: boolean
+        default: false
+
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -70,6 +75,10 @@ jobs:
     steps:
       - name: Setup JS
         uses: so1ve/workflows/setup-js@v1
+
+      - name: Build
+        run: ${{ inputs.build }}
+        if: ${{ inputs.build-for-typecheck }}
 
       - name: Type Check
         run: ${{ inputs.typecheck }}
