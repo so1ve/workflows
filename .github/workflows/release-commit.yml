@@ -15,10 +15,17 @@ on:
         required: false
         type: string
         default: ""
+      working-directory:
+        required: false
+        type: string
+        default: "."
 
 jobs:
   release-commit:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ inputs.working-directory }}
 
     steps:
       - name: Setup JS

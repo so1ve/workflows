@@ -7,10 +7,17 @@ on:
         required: false
         type: string
         default: pnpm run build
+      working-directory:
+        required: false
+        type: string
+        default: "."
 
 jobs:
   release-jsr:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ inputs.working-directory }}
 
     permissions:
       contents: read
