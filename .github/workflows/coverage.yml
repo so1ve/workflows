@@ -30,6 +30,8 @@ jobs:
     steps:
       - name: Setup JS
         uses: so1ve/workflows/setup-js@v1
+        with:
+          working-directory: ${{ inputs.working-directory }}
 
       - name: Build
         run: ${{ inputs.build }}
