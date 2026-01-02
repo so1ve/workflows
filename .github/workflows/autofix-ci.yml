@@ -1,11 +1,6 @@
-name: autofix.ci
+name: Autofix
 
 on:
-  push:
-    branches: [main]
-
-  pull_request: {}
-
   workflow_call:
     inputs:
       command:
