@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Rust
-        uses: rayxiom/workflows/setup-rust@v1
+        uses: so1ve/workflows/setup-rust@v1
         with:
           toolchain: ${{ inputs.toolchain }}
           components: rustfmt

@@ -63,7 +63,7 @@ jobs:
     if: ${{ inputs.toolchain != '' }}
     steps:
       - name: Setup Rust
-        uses: rayxiom/workflows/setup-rust@v1
+        uses: so1ve/workflows/setup-rust@v1
         with:
           toolchain: ${{ inputs.toolchain }}
           components: rustfmt, clippy
@@ -86,7 +86,7 @@ jobs:
     if: ${{ inputs.test && inputs.toolchain != '' }}
     steps:
       - name: Setup Rust
-        uses: rayxiom/workflows/setup-rust@v1
+        uses: so1ve/workflows/setup-rust@v1
         with:
           toolchain: ${{ inputs.toolchain }}
 
