@@ -8,4 +8,4 @@ on:
 
 jobs:
   ci:
-    uses: rayxiom/workflows/.github/workflows/rust-ci.yml@v1
+    uses: so1ve/workflows/.github/workflows/rust-ci.yml@v1

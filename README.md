@@ -1,4 +1,4 @@
-# rayxiom/workflows
+# so1ve/workflows
 
 A collection of reusable GitHub Actions workflows and actions for Ray's projects.
 
@@ -36,7 +36,7 @@ To use a workflow, reference it in your project’s `.github/workflows/*.yml`:
 # Example: Conventional CI
 jobs:
   ci:
-    uses: rayxiom/workflows/.github/workflows/conventional-ci.yml@v1
+    uses: so1ve/workflows/.github/workflows/conventional-ci.yml@v1
 ```
 
 See the example workflow configurations in the [`examples/`](./examples) folder:

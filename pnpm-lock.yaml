@@ -8,10 +8,10 @@ importers:
 
   .:
     devDependencies:
-      '@rayxiom/eslint-config':
+      '@so1ve/eslint-config':
         specifier: ^4.4.0
         version: 4.4.0(@typescript-eslint/eslint-plugin@8.56.1(@typescript-eslint/parser@8.56.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-node@0.3.9)(eslint@9.39.1(jiti@2.6.1))(jiti@2.6.1)(prettier@3.7.4)(typescript@5.9.3)
-      '@rayxiom/prettier-config':
+      '@so1ve/prettier-config':
         specifier: ^4.4.0
         version: 4.4.0(prettier@3.7.4)
       bumpp:
@@ -208,16 +208,16 @@ packages:
   '@quansync/fs@1.0.0':
     resolution: {integrity: sha512-4TJ3DFtlf1L5LDMaM6CanJ/0lckGNtJcMjQ1NAV6zDmA0tEHKZtxNKin8EgPaVX1YzljbxckyT2tJrpQKAtngQ==}
 
-  '@rayxiom/eslint-config@4.4.0':
+  '@so1ve/eslint-config@4.4.0':
     resolution: {integrity: sha512-FlJ/LpGjy8itIiRuXBy3lHFI6fInXALLRbSV7ej98Fk5ef0iqWJliVL9b/sFTkbJrMT1RQMXPLxq9foGRG3ptA==}
     peerDependencies:
       eslint: ^9.39.2
       prettier: ^3.7.4
 
-  '@rayxiom/eslint-plugin@4.4.0':
+  '@so1ve/eslint-plugin@4.4.0':
     resolution: {integrity: sha512-s3TiC1+itICix9cgnr/z5jdIG7ceIUOZkFAQv+dC8lJbnYjtTiL7uAcKT+plAgIwHh+uMRfSWqcEr8PbCyQglA==}
 
-  '@rayxiom/prettier-config@4.4.0':
+  '@so1ve/prettier-config@4.4.0':
     resolution: {integrity: sha512-uOH752GN9io7OxUqbyCbCFBK7BNMSvC4hCLrLmrZ23Low8lO1CgOr+ydL2bXTN1l4wbEemY8GsPh8mjFa/pesA==}
     peerDependencies:
       prettier: ^3.7.4
@@ -2445,12 +2445,12 @@ snapshots:
     dependencies:
       quansync: 1.0.0
 
-  '@rayxiom/eslint-config@4.4.0(@typescript-eslint/eslint-plugin@8.56.1(@typescript-eslint/parser@8.56.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-node@0.3.9)(eslint@9.39.1(jiti@2.6.1))(jiti@2.6.1)(prettier@3.7.4)(typescript@5.9.3)':
+  '@so1ve/eslint-config@4.4.0(@typescript-eslint/eslint-plugin@8.56.1(@typescript-eslint/parser@8.56.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-node@0.3.9)(eslint@9.39.1(jiti@2.6.1))(jiti@2.6.1)(prettier@3.7.4)(typescript@5.9.3)':
     dependencies:
       '@eslint-community/eslint-plugin-eslint-comments': 4.5.0(eslint@9.39.1(jiti@2.6.1))
       '@html-eslint/eslint-plugin': 0.52.1(eslint@9.39.1(jiti@2.6.1))(jiti@2.6.1)
       '@html-eslint/parser': 0.52.0(jiti@2.6.1)
-      '@rayxiom/eslint-plugin': 4.4.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
+      '@so1ve/eslint-plugin': 4.4.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       '@stylistic/eslint-plugin': 5.6.1(eslint@9.39.1(jiti@2.6.1))
       '@typescript-eslint/parser': 8.56.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       '@typescript-eslint/utils': 8.56.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
@@ -2510,7 +2510,7 @@ snapshots:
       - typescript
       - vitest
 
-  '@rayxiom/eslint-plugin@4.4.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)':
+  '@so1ve/eslint-plugin@4.4.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)':
     dependencies:
       '@typescript-eslint/types': 8.56.1
       '@typescript-eslint/utils': 8.56.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
@@ -2520,7 +2520,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@rayxiom/prettier-config@4.4.0(prettier@3.7.4)':
+  '@so1ve/prettier-config@4.4.0(prettier@3.7.4)':
     dependencies:
       prettier: 3.7.4
       prettier-plugin-astro: 0.14.1

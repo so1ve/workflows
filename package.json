@@ -10,8 +10,8 @@
     "release": "bumpp && git update-ref refs/heads/v1 refs/heads/main && git push origin v1 --force"
   },
   "devDependencies": {
-    "@rayxiom/eslint-config": "^4.4.0",
-    "@rayxiom/prettier-config": "^4.4.0",
+    "@so1ve/eslint-config": "^4.4.0",
+    "@so1ve/prettier-config": "^4.4.0",
     "bumpp": "^10.3.2",
     "eslint": "^9.39.1",
     "prettier": "^3.7.4"

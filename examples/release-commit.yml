@@ -8,6 +8,6 @@ permissions:
 
 jobs:
   release-commit:
-    uses: rayxiom/workflows/.github/workflows/release-commit.yml@v1
+    uses: so1ve/workflows/.github/workflows/release-commit.yml@v1
     with:
       compact: true
