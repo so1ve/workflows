@@ -44,7 +44,7 @@ runs:
         fetch-depth: "${{ inputs.fetch-all == 'true' && '0' || '1' }}"
 
     - name: Install pnpm
-      uses: pnpm/action-setup@v4.2.0
+      uses: pnpm/action-setup@v6.0.8
       if: ${{ inputs.package-manager == 'pnpm' }}
       with:
         run_install: false
