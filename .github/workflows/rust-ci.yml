@@ -23,6 +23,12 @@ on:
         type: boolean
         default: true
 
+      setup:
+        description: Directory containing a setup composite action in the caller repository
+        required: false
+        type: string
+        default: ""
+
       test-args:
         required: false
         type: string
@@ -68,6 +74,17 @@ jobs:
           toolchain: ${{ inputs.toolchain }}
           components: rustfmt, clippy
 
+      - name: Stage project setup
+        if: ${{ inputs.setup != '' }}
+        shell: bash
+        run: |
+          mkdir -p .github/actions/__rust-ci-setup
+          cp -R "${{ inputs.setup }}"/. .github/actions/__rust-ci-setup
+
+      - name: Setup project
+        if: ${{ inputs.setup != '' }}
+        uses: ./.github/actions/__rust-ci-setup
+
       - name: Check formatting
         run: ${{ inputs.fmt-check }}
         if: ${{ inputs.rustfmt }}
@@ -89,6 +106,17 @@ jobs:
         uses: so1ve/workflows/setup-rust@v1
         with:
           toolchain: ${{ inputs.toolchain }}
+
+      - name: Stage project setup
+        if: ${{ inputs.setup != '' }}
+        shell: bash
+        run: |
+          mkdir -p .github/actions/__rust-ci-setup
+          cp -R "${{ inputs.setup }}"/. .github/actions/__rust-ci-setup
+
+      - name: Setup project
+        if: ${{ inputs.setup != '' }}
+        uses: ./.github/actions/__rust-ci-setup
 
       - name: Run tests
         run: ${{ inputs.test-command }}

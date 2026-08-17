@@ -39,6 +39,18 @@ jobs:
     uses: so1ve/workflows/.github/workflows/conventional-ci.yml@v1
 ```
 
+### Custom Rust CI setup
+
+Rust CI can run arbitrary caller-defined setup steps before linting and testing. Create a [composite action](https://docs.github.com/en/actions/sharing-automations/creating-actions/creating-a-composite-action) in the caller repository, then pass its directory through the `setup` input:
+
+```yaml
+jobs:
+  ci:
+    uses: so1ve/workflows/.github/workflows/rust-ci.yml@v1
+    with:
+      setup: .github/actions/setup-rust-ci
+```
+
 See the example workflow configurations in the [`examples/`](./examples) folder:
 
 ### JavaScript/TypeScript
