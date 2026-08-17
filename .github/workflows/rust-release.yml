@@ -13,6 +13,12 @@ on:
         type: string
         default: release
 
+      setup:
+        description: Directory containing a setup composite action in the caller repository
+        required: false
+        type: string
+        default: ""
+
     outputs:
       releases:
         description: release-plz releases JSON
@@ -34,6 +40,17 @@ jobs:
         with:
           toolchain: ${{ inputs.toolchain }}
           fetch-all: "true"
+
+      - name: Stage project setup
+        if: ${{ inputs.setup != '' }}
+        shell: bash
+        run: |
+          mkdir -p .github/actions/__rust-release-setup
+          cp -R "${{ inputs.setup }}"/. .github/actions/__rust-release-setup
+
+      - name: Setup project
+        if: ${{ inputs.setup != '' }}
+        uses: ./.github/actions/__rust-release-setup
 
       - name: Run release-plz
         id: release-plz
