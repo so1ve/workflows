@@ -52,6 +52,11 @@ jobs:
         if: ${{ inputs.setup != '' }}
         uses: ./.github/actions/__rust-release-setup
 
+      - name: Clean up project setup
+        if: ${{ inputs.setup != '' }}
+        shell: bash
+        run: rm -r .github/actions/__rust-release-setup
+
       - name: Run release-plz
         id: release-plz
         uses: release-plz/action@v0.5
