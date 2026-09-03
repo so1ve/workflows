@@ -1,5 +1,5 @@
-shellEmulator: true
 minimumReleaseAge: 0
 
+shellEmulator: true
 allowBuilds:
   unrs-resolver: true
