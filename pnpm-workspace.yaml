@@ -1,4 +1,5 @@
 shellEmulator: true
+minimumReleaseAge: 0
 
-onlyBuiltDependencies:
-  - unrs-resolver
+allowBuilds:
+  unrs-resolver: true

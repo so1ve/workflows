@@ -1,7 +1,7 @@
 {
   "private": true,
   "version": "1.5.1",
-  "packageManager": "pnpm@10.25.0",
+  "packageManager": "pnpm@11.25.0",
   "type": "module",
   "license": "MIT",
   "scripts": {
@@ -10,10 +10,10 @@
     "release": "bumpp && git update-ref refs/heads/v1 refs/heads/main && git push origin v1 --force"
   },
   "devDependencies": {
-    "@so1ve/eslint-config": "^4.4.0",
-    "@so1ve/prettier-config": "^4.4.0",
-    "bumpp": "^10.3.2",
-    "eslint": "^9.39.1",
-    "prettier": "^3.7.4"
+    "@so1ve/eslint-config": "^4.7.0",
+    "@so1ve/prettier-config": "^4.7.0",
+    "bumpp": "^12.3.0",
+    "eslint": "^10.9.1",
+    "prettier": "^3.9.6"
   }
 }
