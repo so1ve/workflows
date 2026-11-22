@@ -1,7 +1,7 @@
 {
   "private": true,
   "version": "1.5.4",
-  "packageManager": "pnpm@11.25.0",
+  "packageManager": "pnpm@12.21.0",
   "type": "module",
   "license": "MIT",
   "scripts": {
@@ -13,7 +13,7 @@
     "@so1ve/eslint-config": "^4.7.0",
     "@so1ve/prettier-config": "^4.7.0",
     "bumpp": "^12.3.0",
-    "eslint": "^10.9.1",
-    "prettier": "^3.9.6"
+    "eslint": "^10.15.0",
+    "prettier": "^3.10.1"
   }
 }
